@@ -11,6 +11,7 @@ void main() {
   var teledart = TeleDart(Telegram(Config.botToken), Event());
 
   teledart.start();
+  print("Bot started successfully! Using long-polling.");
 
   teledart.onCommand("start").listen(startCommand);
 
@@ -71,6 +72,7 @@ Future<void> dartCommand(TeleDartMessage message) async {
 
 Future<void> dartInline(TeleDartInlineQuery query) async {
   String code = query.query.trim();
+  if (code.isEmpty) return;
   String result = await executeDartCode(code);
   query.answer([
     InlineQueryResultArticle()
