@@ -39,13 +39,15 @@ bool verifyInlineUser(TeleDartInlineQuery query) {
 }
 
 Future<String> executeDartCode(String code) async {
-  var file = await File("project.dart").writeAsString(code.trim());
+  String codeAsString = code.trim();
+  var file = await File("project.dart").writeAsString(codeAsString);
   var result = await Process.run("dart", ["project.dart"]);
   var escaper = const HtmlEscape();
+  String finalCode = escaper.convert(codeAsString);
   String stdout = escaper.convert(await result.stdout.trim());
   String stderr = escaper.convert(await result.stderr.trim());
   StringBuffer text = StringBuffer();
-  text.write("<b>CODE:</b>\n<code>$code</code>\n");
+  text.write("<b>CODE:</b>\n<code>$finalCode</code>\n");
   if (stdout.isNotEmpty) {
     text.write("\n<b>STDOUT:</b>\n<code>$stdout</code>\n");
   }
