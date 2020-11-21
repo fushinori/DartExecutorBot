@@ -62,7 +62,7 @@ Future<String> executeDartCode(String code) async {
 
 void startCommand(TeleDartMessage message) {
   var text = "Hey! This bot is not for public use. To deploy your own, "
-      "click [here.](https://github.com/rsktg/DartExecutorBot)";
+      "click [here.](https://gitlab.com/rsktg/DartExecutorBot)";
   message.reply(text, parse_mode: "MARKDOWN");
 }
 
