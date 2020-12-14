@@ -10,6 +10,21 @@ cp sample_config.dart config.dart
 ```
 Edit config.dart accordingly.
 
+- <details>
+    <summary>Using Docker</summary>
+- ### Build docker image
+```bash
+docker build -t dartexecutorbot .
+```
+
+- ### Run it
+```bash
+docker run -d --name dart dartexecutorbot
+```
+</details>
+
+- <details>
+    <summary>Manual Installation</summary>
 - ### Installing dependencies
 ```bash
 pub get
@@ -19,3 +34,4 @@ pub get
 ```bash
 dart main.dart
 ```
+</details>
