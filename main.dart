@@ -29,17 +29,11 @@ void main() {
 }
 
 bool verifyUser(TeleDartMessage message) {
-  if (Config.authUsers.contains(message.from.id)) {
-    return true;
-  }
-  return false;
+  return Config.authUsers.contains(message.from.id);
 }
 
 bool verifyInlineUser(TeleDartInlineQuery query) {
-  if (Config.authUsers.contains(query.from.id)) {
-    return true;
-  }
-  return false;
+  return Config.authUsers.contains(query.from.id);
 }
 
 Future<String> executeDartCode(String code) async {
